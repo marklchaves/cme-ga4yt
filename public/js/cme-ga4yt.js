@@ -387,7 +387,7 @@
       _config.forceSyntax !== 2) {
 
       // Support user ID tracking.
-      if (cmeGa4ytUserId) {
+      if (typeof cmeGa4ytUserId !== 'undefined') {
         window[_ga]('set', 'userId', cmeGa4ytUserId);
         window[_ga]('set', 'dimension2', cmeGa4ytUserId);
       }
