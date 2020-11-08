@@ -386,8 +386,12 @@
       typeof window[_ga].getAll === 'function' &&
       _config.forceSyntax !== 2) {
 
-      window[_ga]('set', 'userId', cmeGa4ytUserId);
-      window[_ga]('set', 'dimension2', cmeGa4ytUserId);
+      // Support user ID tracking.
+      if (cmeGa4ytUserId) {
+        window[_ga]('set', 'userId', cmeGa4ytUserId);
+        window[_ga]('set', 'dimension2', cmeGa4ytUserId);
+      }
+
       window[_ga]('send', 'event', 'Videos', state, videoUrl);
 
     } else if (typeof window._gaq !== 'undefined' && forceSyntax !== 1) {

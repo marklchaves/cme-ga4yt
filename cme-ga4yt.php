@@ -50,8 +50,9 @@ function enqueue_cme_ga4yt_javascript()
 
     wp_enqueue_script( CME_GA4YT_PLUGIN_NAME );
 
-    // Prep for user ID tracking
+    // Support user ID tracking
     $user_ID = cme_ga4yt_get_user_id();
+    if (!$user_ID) return;
     $script  =  <<<EOT
 let cmeGa4ytUserId = $user_ID;
 EOT;
