@@ -2,8 +2,8 @@
 
   'use strict';
 	// This script won't work on IE 6 or 7, so we bail at this point if we detect that UA
-	if (navigator.userAgent.match(/MSIE [67]\./gi)) return;
-
+  if (navigator.userAgent.match(/MSIE [67]\./gi)) return;
+  
   var _config = config || {};
   var forceSyntax = _config.forceSyntax || 0;
   var dataLayerName = _config.dataLayerName || 'dataLayer';
@@ -386,10 +386,12 @@
       typeof window[_ga].getAll === 'function' &&
       _config.forceSyntax !== 2) {
 
+      // DEBUG
+      console.log('cmeGa4ytUserIdCdIndex = ' + cmeGa4ytUserIdCdIndex);
       // Support user ID tracking.
       if (typeof cmeGa4ytUserId !== 'undefined') {
         window[_ga]('set', 'userId', cmeGa4ytUserId);
-        window[_ga]('set', 'dimension2', cmeGa4ytUserId);
+        window[_ga]('set', 'dimension' + cmeGa4ytUserIdCdIndex, cmeGa4ytUserId);
       }
 
       window[_ga]('send', 'event', 'Videos', state, videoUrl);

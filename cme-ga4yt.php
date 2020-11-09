@@ -26,6 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'CME_GA4YT_PLUGIN_NAME', 'cme-ga4yt' );
 define( 'CME_GA4YT_PLUGIN_VERSION', '1.0.0' );
+define('USER_ID_CUSTOM_DIMENSION_INDEX', '0'); // Default to invalid CD index.
 
 /**
  * Helper function.
@@ -51,13 +52,19 @@ function enqueue_cme_ga4yt_javascript()
     wp_enqueue_script( CME_GA4YT_PLUGIN_NAME );
 
     // Support user ID tracking
+    $custom_dimension_index = USER_ID_CUSTOM_DIMENSION_INDEX;
+    $custom_dimension_index = 
+        apply_filters( 'cme_user_id_custom_dimension_index', 
+                       $custom_dimension_index );
     $user_ID = cme_ga4yt_get_user_id();
     if (!$user_ID) return;
     $script  =  <<<EOT
 let cmeGa4ytUserId = $user_ID;
+let cmeGa4ytUserIdCdIndex = $custom_dimension_index;
 EOT;
 
     wp_add_inline_script(CME_GA4YT_PLUGIN_NAME, $script, 'before');
 
+    // Note: using php_vars with wp_localize_script() didn't work here.
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_cme_ga4yt_javascript' );
