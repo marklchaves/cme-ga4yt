@@ -394,11 +394,11 @@
         window[_ga]('set', 'dimension' + cmeGa4ytUserIdCdIndex, cmeGa4ytUserId);
       }
 
-      window[_ga]('send', 'event', 'Videos', state, videoUrl);
+      window[_ga]('send', 'event', 'YouTube Video', state, videoUrl);
 
     } else if (typeof window._gaq !== 'undefined' && forceSyntax !== 1) {
 
-      window._gaq.push(['_trackEvent', 'Videos', state, videoUrl]);
+      window._gaq.push(['_trackEvent', 'YouTube Video', state, videoUrl]);
 
     }
 
