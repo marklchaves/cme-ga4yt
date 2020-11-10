@@ -33,4 +33,14 @@ add_filter( 'cme_user_id_custom_dimension_index', function($custom_dimension_ind
 
 ## Screen Captures
 
+## Google Analytics Realtime YouTube Video Events Report
+![Google Analytics Realtime YouTube Video Events Report](screengrabs/cme-ga4yt-ga-realtime.png)
+
+## Google Analytics Custom Report Showing YouTube Video Events by User ID
+![Google Analytics Custom Report Showing YouTube Video Events by User ID](screengrabs/cme-ga4yt-ga-custom-report.png)
+
+---
+
+## Credits
+
 **COMING SOON**
