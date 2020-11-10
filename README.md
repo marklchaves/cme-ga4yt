@@ -43,4 +43,4 @@ add_filter( 'cme_user_id_custom_dimension_index', function($custom_dimension_ind
 
 ## Credits
 
-**COMING SOON**
+The JavaScript source for tracking YouTube events was originally written by [LunaMetrics](http://www.lunametrics.com/). The code was forked from the [Bounteous repo](https://github.com/Bounteous-Inc/youtube-google-analytics).
