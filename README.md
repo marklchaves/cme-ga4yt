@@ -20,9 +20,7 @@ Next: Write your filter hook for your user ID custom dimension index.
 
 ## PHP Filter Hook
 
-Add a call to the cme_user_id_custom_dimension_index filter hook to your child theme’s functions.php file. Change the custom dimension index to match the user ID custom dimension index in your Google Analytics property.
-
-Set the your user ID custom dimension index by using the cme_user_id_custom_dimension_index filter hook.
+Add a call to the `cme_user_id_custom_dimension_index` filter hook to your child theme’s functions.php file. Change the custom dimension index to match the user ID custom dimension index in your Google Analytics property.
 
 ```php
 add_filter( 'cme_user_id_custom_dimension_index', function($custom_dimension_index) {
