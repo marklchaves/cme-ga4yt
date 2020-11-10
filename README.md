@@ -35,4 +35,4 @@ add_filter( 'cme_user_id_custom_dimension_index', function($custom_dimension_ind
 
 ## Screen Captures
 
-**COMING SOON***
+**COMING SOON**
