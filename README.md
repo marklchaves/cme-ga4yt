@@ -2,7 +2,7 @@
 
  Google Analytics for YouTube Tracking
  
- Play around with the [live demo](https://caughtmyeyedev.000webhostapp.com/youtube-video-tracking).
+ Play around with the [live demo](https://streetphotography.blog/youtube-video-tracking/).
 
 ---
 
