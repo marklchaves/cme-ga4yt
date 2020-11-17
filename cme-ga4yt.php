@@ -11,7 +11,7 @@
  * Plugin Name:       cme Google Analytics for YouTube Tracking
  * Plugin URI:        https://github.com/marklchaves/ashtabula
  * Description:       Google Analytics for YouTube Tracking
- * Version:           0.0.1
+ * Version:           0.0.2
  * Author:            caught my eye
  * Author URI:        https://www.caughtmyeye.cc
  * License:           GPL-2.0+
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'CME_GA4YT_PLUGIN_NAME', 'cme-ga4yt' );
-define( 'CME_GA4YT_PLUGIN_VERSION', '1.0.0' );
+define( 'CME_GA4YT_PLUGIN_VERSION', '0.0.2' );
 define('USER_ID_CUSTOM_DIMENSION_INDEX', '0'); // Default to invalid CD index.
 
 /**
