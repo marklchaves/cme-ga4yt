@@ -1,9 +1,12 @@
 (function(document, window, config) {
 
   'use strict';
-	// This script won't work on IE 6 or 7, so we bail at this point if we detect that UA
+    // This script won't work on IE 6 or 7, so we bail at this point if we detect that UA
   if (navigator.userAgent.match(/MSIE [67]\./gi)) return;
-  
+ 
+  // DEBUG
+  console.log('\n\n[YouTube] cme-ga4yt.js loading ... \n\n');
+
   var _config = config || {};
   var forceSyntax = _config.forceSyntax || 0;
   var dataLayerName = _config.dataLayerName || 'dataLayer';
@@ -13,8 +16,8 @@
     'Pause': true,
     'Watch to End': true
   };
-	var firstScriptTag;
-	var tag;
+    var firstScriptTag;
+    var tag;
   var key;
 
   for (key in _config.events) {
@@ -27,57 +30,57 @@
 
   }
 
-	if (window.YT) {
+    if (window.YT) {
 
-		init();	
+        init();	
 
-	} else {
+    } else {
 
-		// Fetches YouTube JS API
-		tag = document.createElement('script');
-		tag.src = '//www.youtube.com/iframe_api';
-		firstScriptTag = document.getElementsByTagName('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // Fetches YouTube JS API
+        tag = document.createElement('script');
+        tag.src = '//www.youtube.com/iframe_api';
+        firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-		window.onYouTubeIframeAPIReady = (function(o) {
+        window.onYouTubeIframeAPIReady = (function(o) {
 
-			return function() {
+            return function() {
 
-				if (o) o.apply(this, arguments);
+                if (o) o.apply(this, arguments);
 
-				init();
+                init();
 
-			};	
+            };	
 
-		})(window.onYouTubeIframeAPIReady);
+        })(window.onYouTubeIframeAPIReady);
 
-	}
+    }
 
   // Invoked by the YouTube API when it's ready
   function init() {
 
-		if (document.readyState !== 'loading') {
+        if (document.readyState !== 'loading') {
 
-			bind();
+            bind();
 
-		} else {
+        } else {
 
-			// On IE8 this fires on window.load, all other browsers will fire when DOM ready
-			if ('addEventListener' in document) {
+            // On IE8 this fires on window.load, all other browsers will fire when DOM ready
+            if ('addEventListener' in document) {
 
-				addEvent(document, 'DOMContentLoaded', bind);
+                addEvent(document, 'DOMContentLoaded', bind);
 
-			} else {
+            } else {
 
-				addEvent(window, 'load', bind);
+                addEvent(window, 'load', bind);
 
-			}
+            }
 
-		}
+        }
 
   }
 
-	function bind() {
+    function bind() {
 
     var potentialVideos = getTagsAsArr_('iframe').concat(getTagsAsArr_('embed'));
     digestPotentialVideos(potentialVideos);
@@ -87,7 +90,7 @@
       document.addEventListener('load', bindToNewVideos_, true);
     }
 
-	}
+    }
 
   // Take our videos and turn them into trackable videos with events
   function digestPotentialVideos(potentialVideos) {
@@ -288,6 +291,9 @@
 
   // Event handler for events emitted from the YouTube API
   function onStateChangeHandler(evt, youTubeIframe) {
+      
+    // DEBUG
+    console.log('[YouTube] Handling an event ...');
 
     var stateIndex = evt.data;
     var player = evt.target;
@@ -352,6 +358,9 @@
       }
 
     }
+    
+    // DEBUG
+    console.log('[YouTube] Events fired? ' + eventsFired[state]);
 
     // If we're meant to track this event, fire it
     if (eventsFired[state]) {
@@ -367,6 +376,14 @@
 
     var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
     var _ga = window.GoogleAnalyticsObject;
+    
+    // DEBUG
+    console.log('[YouTube] videoUrl = ' + videoUrl);
+    /*
+    console.log('typeof window[_ga] = ' + typeof window[_ga]);
+    console.log('typeof window[_ga].getAll = ' + typeof window[_ga].getAll);
+    console.log('_config.forceSyntax = ' + _config.forceSyntax);
+    */
 
     if (typeof window[dataLayerName] !== 'undefined' && !_config.forceSyntax) {
 
@@ -386,10 +403,12 @@
       typeof window[_ga].getAll === 'function' &&
       _config.forceSyntax !== 2) {
 
-      // DEBUG
-      console.log('cmeGa4ytUserIdCdIndex = ' + cmeGa4ytUserIdCdIndex);
       // Support user ID tracking.
-      if (typeof cmeGa4ytUserId !== 'undefined') {
+      if ((typeof cmeGa4ytUserId !== 'undefined') && (typeof cmeGa4ytUserIdCdIndex !== 'undefined')) {
+        // DEBUG
+        console.log('[YouTube] User ID custom dimension index = ' + cmeGa4ytUserIdCdIndex);
+        console.log('[YouTube] User ID = ' + cmeGa4ytUserId);
+
         window[_ga]('set', 'userId', cmeGa4ytUserId);
         window[_ga]('set', 'dimension' + cmeGa4ytUserIdCdIndex, cmeGa4ytUserId);
       }
