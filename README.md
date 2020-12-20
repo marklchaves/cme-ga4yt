@@ -4,11 +4,7 @@
 
 Supports logged-in user ID tracking.
  
-<<<<<<< Updated upstream
- Play around with the [live demo](https://streetphotography.blog/youtube-video-tracking/).
-=======
 Play around with the [live demo](https://streetphotography.blog/youtube-video-tracking/).
->>>>>>> Stashed changes
 
 ---
 
