@@ -1,8 +1,14 @@
 # cme-ga4yt
 
- Google Analytics for YouTube Tracking
+## A WordPress Plugin for YouTube Tracking using Google Analytics
+
+Supports logged-in user ID tracking.
  
+<<<<<<< Updated upstream
  Play around with the [live demo](https://streetphotography.blog/youtube-video-tracking/).
+=======
+Play around with the [live demo](https://streetphotography.blog/youtube-video-tracking/).
+>>>>>>> Stashed changes
 
 ---
 
