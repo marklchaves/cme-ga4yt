@@ -4,14 +4,14 @@
  * caught my eye Google Analytics for YouTube Tracking
  *
  * @link              https://github.com/marklchaves/cme-ga4yt
- * @since             0.0.1
+ * @since             0.1.0
  * @package           Cme_Ga4yt
  *
  * @wordpress-plugin
  * Plugin Name:       cme Google Analytics for YouTube Tracking
  * Plugin URI:        https://github.com/marklchaves/ashtabula
  * Description:       Google Analytics for YouTube Tracking
- * Version:           0.0.2
+ * Version:           0.3.0
  * Author:            caught my eye
  * Author URI:        https://www.caughtmyeye.cc
  * License:           GPL-2.0+
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'CME_GA4YT_PLUGIN_NAME', 'cme-ga4yt' );
-define( 'CME_GA4YT_PLUGIN_VERSION', '0.0.2' );
+define( 'CME_GA4YT_PLUGIN_VERSION', '0.3.0' );
 define('USER_ID_CUSTOM_DIMENSION_INDEX', '0'); // Default to invalid CD index.
 
 /**

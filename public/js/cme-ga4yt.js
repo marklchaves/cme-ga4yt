@@ -409,8 +409,11 @@
         console.log('[YouTube] User ID custom dimension index = ' + cmeGa4ytUserIdCdIndex);
         console.log('[YouTube] User ID = ' + cmeGa4ytUserId);
 
-        window[_ga]('set', 'userId', cmeGa4ytUserId);
-        window[_ga]('set', 'dimension' + cmeGa4ytUserIdCdIndex, cmeGa4ytUserId);
+        // Only set user ID dimension if we have a valid ID.
+        if (cmeGa4ytUserId > 0) {
+          window[_ga]('set', 'userId', cmeGa4ytUserId);
+          window[_ga]('set', 'dimension' + cmeGa4ytUserIdCdIndex, cmeGa4ytUserId);
+        }
       }
 
       window[_ga]('send', 'event', 'YouTube Video', state, videoUrl);
