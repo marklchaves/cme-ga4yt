@@ -379,11 +379,9 @@
     
     // DEBUG
     console.log('[YouTube] videoUrl = ' + videoUrl);
-    /*
     console.log('typeof window[_ga] = ' + typeof window[_ga]);
     console.log('typeof window[_ga].getAll = ' + typeof window[_ga].getAll);
     console.log('_config.forceSyntax = ' + _config.forceSyntax);
-    */
 
     if (typeof window[dataLayerName] !== 'undefined' && !_config.forceSyntax) {
 
@@ -416,7 +414,14 @@
         }
       }
 
-      window[_ga]('send', 'event', 'YouTube Video', state, videoUrl);
+      //window[_ga]('send', 'event', 'YouTube Video', state, videoUrl);
+
+      gtag("event", state, {
+        event_category: "YouTube Video",
+        event_label: videoUrl,
+        value: 1,
+      });
+     
 
     } else if (typeof window._gaq !== 'undefined' && forceSyntax !== 1) {
 
@@ -489,7 +494,8 @@
   'percentageTracking': {
     'every': 25,
     'each': [10, 90]
-  }
+  },
+  'forceSyntax': 1
 });
 /*
  * Configuration Details
